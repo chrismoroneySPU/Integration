@@ -9,5 +9,5 @@ let BookSchema = new Schema({
     Price: Number
 });
 
-module.exports = mongoose.model('Book', BookSchema);
+module.exports = mongoose.model('book', BookSchema);
 

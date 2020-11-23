@@ -24,12 +24,12 @@ router.post('/', (request, response, next) => {
     console.log(request.body);
     if (!newBook.Name || !newBook.Author || !newBook.ISBN || !newBook.Price){
         HandleError(response, 'Missing Info', 'Form data missing', 500);
-    }else{
+    } else {
         let book = new BookSchema({
-            Name: book.String,
-            Author: book.String,
-            ISBN: book.String,
-            Price: book.Number
+            Name: newBook.Name,
+            Author: newBook.Author,
+            ISBN: newBook.ISBN,
+            Price: newBook.Price
         });
         book.save((error) => {
             if (error){
@@ -42,10 +42,10 @@ router.post('/', (request, response, next) => {
 });
 
 router.get('/', (request, response, next) => {
-    let name = request.query['name'];
-    if (name){
+    let author = request.query['author'];
+    if (author){
         BookSchema
-            .find({"Name": name})
+            .find({"Author": author})
             .exec( (error, books) => {
                 if (error){
                     response.send({"error": error});
@@ -53,10 +53,10 @@ router.get('/', (request, response, next) => {
                     response.send(books);
                 }
             });
-    }else{
+    } else {
         BookSchema
             .find()
-            .exec( (error, books) => {
+            .exec((error, books) => {
                 if (error){
                     response.send({"error": error});
                 }else{
@@ -64,40 +64,31 @@ router.get('/', (request, response, next) => {
                 }
             });
     }
-    // BookSchema
-    //     .find()
-    //     .exec( (error, books) => {
-    //         if (error){
-    //             response.send({"error": error});
-    //         }else{
-    //             response.send(books);
-    //         }
-    //     });
-} );
+});
 
-router.get('/:id', (request, response, next) =>{
+router.get('/:ISBN', (request, response, next) =>{
     BookSchema
-        .findOne({"_id": request.params.id}, (error, result) =>{
+        .findOne({"ISBN": request.params.ISBN}, (error, result) =>{
             if (error) {
                 response.status(500).send(error);
             }
-            if (result){
+            if (result) {
                 response.send(result);
-            }else{
+            } else {
                 response.status(404).send({"id": request.params.id, "error":  "Not Found"});
             }
 
         });
 });
 
-router.patch('/:id', (request, response, next) =>{
+router.patch('/:ISBN', (request, response, next) =>{
     BookSchema
-        .findById(request.params.id, (error, result)=>{
+        .findOne({"ISBN": request.params.ISBN}, (error, result)=>{
             if (error) {
                 response.status(500).send(error);
             }else if (result){
-                if (request.body._id){
-                    delete request.body._id;
+                if (request.body.ISBN){
+                    delete request.body.ISBN;
                 }
                 for (let field in request.body){
                     result[field] = request.body[field];
@@ -109,26 +100,26 @@ router.patch('/:id', (request, response, next) =>{
                     response.send(book);
                 });
             }else{
-                response.status(404).send({"id": request.params.id, "error":  "Not Found"});
+                response.status(404).send({"ISBN": request.params.ISBN, "error":  "Not Found"});
             }
 
         });
 });
 
-router.delete('/:id', (request, response, next) =>{
+router.delete('/:ISBN', (request, response, next) =>{
     BookSchema
-        .findById(request.params.id, (error, result)=>{
+        .findOne({"ISBN": request.params.ISBN}, (error, result)=>{
             if (error) {
                 response.status(500).send(error);
-            }else if (result){
+            } else if (result){
                 result.remove((error)=>{
                     if (error){
                         response.status(500).send(error);
                     }
-                    response.send({"deletedId": request.params.id});
+                    response.send({"deletedISBN": request.params.ISBN});
                 });
-            }else{
-                response.status(404).send({"id": request.params.id, "error":  "Not Found"});
+            } else {
+                response.status(404).send({"ISBN": request.params.ISBN, "error":  "Not Found"});
             }
         });
 });
