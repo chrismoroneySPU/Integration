@@ -21,7 +21,6 @@ function HandleError(response, reason, message, code){
 
 router.post('/', (request, response, next) => {
     let newBook = request.body;
-    console.log(request.body);
     if (!newBook.Name || !newBook.Author || !newBook.ISBN || !newBook.Price){
         HandleError(response, 'Missing Info', 'Form data missing', 500);
     } else {
