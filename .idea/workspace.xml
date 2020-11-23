@@ -11,12 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6c56b0ba-7022-40f5-8c11-0a6324db4a6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.pug" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,10 +46,29 @@
       <option name="presentableId" value="Default" />
       <updated>1606175120662</updated>
       <workItem from="1606175123068" duration="43000" />
+      <workItem from="1606175221678" duration="559000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1638" height="263" key="GridCell.Tab.0.bottom" timestamp="1606175784640">
+      <screen x="0" y="23" width="1680" height="979" />
+    </state>
+    <state width="1638" height="263" key="GridCell.Tab.0.bottom/0.23.1680.979@0.23.1680.979" timestamp="1606175784640" />
+    <state width="1638" height="263" key="GridCell.Tab.0.center" timestamp="1606175784640">
+      <screen x="0" y="23" width="1680" height="979" />
+    </state>
+    <state width="1638" height="263" key="GridCell.Tab.0.center/0.23.1680.979@0.23.1680.979" timestamp="1606175784640" />
+    <state width="1638" height="263" key="GridCell.Tab.0.left" timestamp="1606175784639">
+      <screen x="0" y="23" width="1680" height="979" />
+    </state>
+    <state width="1638" height="263" key="GridCell.Tab.0.left/0.23.1680.979@0.23.1680.979" timestamp="1606175784639" />
+    <state width="1638" height="263" key="GridCell.Tab.0.right" timestamp="1606175784640">
+      <screen x="0" y="23" width="1680" height="979" />
+    </state>
+    <state width="1638" height="263" key="GridCell.Tab.0.right/0.23.1680.979@0.23.1680.979" timestamp="1606175784640" />
   </component>
 </project>
