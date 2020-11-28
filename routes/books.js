@@ -33,7 +33,7 @@ router.post('/', (request, response, next) => {
         book.save((error) => {
             if (error){
                 response.send({"error": error});
-            }else{
+            } else {
                 response.send({"id": book.id});
             }
         });
