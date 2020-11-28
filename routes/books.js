@@ -48,7 +48,7 @@ router.get('/', (request, response, next) => {
             .exec( (error, books) => {
                 if (error){
                     response.send({"error": error});
-                }else{
+                } else {
                     response.send(books);
                 }
             });
@@ -58,7 +58,7 @@ router.get('/', (request, response, next) => {
             .exec((error, books) => {
                 if (error){
                     response.send({"error": error});
-                }else{
+                } else{
                     response.send(books);
                 }
             });
@@ -72,7 +72,7 @@ router.get('/:ISBN', (request, response, next) =>{
                 response.status(500).send(error);
             }
             if (result) {
-                response.send(result);
+                response.send('[' + result + ']');
             } else {
                 response.status(404).send({"id": request.params.id, "error":  "Not Found"});
             }
@@ -85,8 +85,8 @@ router.patch('/:ISBN', (request, response, next) =>{
         .findOne({"ISBN": request.params.ISBN}, (error, result)=>{
             if (error) {
                 response.status(500).send(error);
-            }else if (result){
-                if (request.body.ISBN){
+            } else if (result){
+                if (request.body.ISBN) {
                     delete request.body.ISBN;
                 }
                 for (let field in request.body){
@@ -98,7 +98,7 @@ router.patch('/:ISBN', (request, response, next) =>{
                     }
                     response.send(book);
                 });
-            }else{
+            } else {
                 response.status(404).send({"ISBN": request.params.ISBN, "error":  "Not Found"});
             }
 
