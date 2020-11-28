@@ -72,7 +72,7 @@ router.get('/:ISBN', (request, response, next) =>{
                 response.status(500).send(error);
             }
             if (result) {
-                response.send('[' + result + ']');
+                response.send(result);
             } else {
                 response.status(404).send({"id": request.params.id, "error":  "Not Found"});
             }
